@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Router Kernel - Emerging Trends</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 20px; background-color: #333;}
+        h1, h2 { color: #dfdfdf; }
+        p, ul { color: #c9c9c9; }
+        code { color: #333; background: #f4f4f4; padding: 2px 5px; border-radius: 3px; }
+        .section { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Rust Router Kernel - Emerging Trends</h1>
+    
+    <p>Ethen Mitterhuber, Aryan Rattan</p>
+
+    <div class="section">
+        <h2>Overview</h2>
+        <p>This project explores the use of Rust in low level application development by building a router kernel. Rust’s memory safety and performance make it an ideal language for low-level applications, as it prevents us as the developers from making mistakes with memory management that would lead to leaks, and possibly crash the system.</p>
+    </div>
+
+    <div class="section">
+        <h2>Progress on the Kernel</h2>
+        <p>The development of the kernel has been slow. We underestimated the complexities of kernel development. Due to this, few features have actually been implemented. We have a basic bootloader, that can find the kernel file within the filesystem provided by UEFI and load it into memory. However, More work is needed on the bootloader before it can successfully transfer control off to the kernel.</p>
+    </div>
+
+    <div class="section">
+        <h2>Emerging Trends Explored</h2>
+        <p>The kernel itself was not an emerging trend, as they've been around for years. So to fit this project into our exploration of emerging trends, we had to get creative.</p>
+        <p>Our biggest trend we've been exploring is low-level application development with the Rust programming language. Rust was first released in May of 2015, and has been growing since. It is known for its memory safety, where it sets up guard rails that prevents you from writing memory unsafe code. Rust does this in a few ways:</p>
+        <ul>
+            <li>Ownership System - Every value can only have one owner at a time. This prevents pointers that point to objects that no longer exist, if they've been deleted when in another variable. It also prevents memory from being freed twice, if the developer forgets that two variables contain the same value</li>
+            <li>Borrow Checker - Rust implements a borrow checker, which prevents data races, and attempting to access an invalid reference. It enforces that only one mutable reference OR multiple immutable references exist for a given value. A value cannot have both mutable and immutable references defined at the same time, and cannot have multiple mutable references. this ensures that the developer doesn't try to mutate a value from a reference that is being used in other references. One example used is mutating a vector in a loop looping through the vector being mutated.</li>
+            <li>Strict Type System - Rust is a strictly typed language, meaning you need to define the type of each variable. To define a variable, rust uses the let keyword. In most cases, it can find the type automatically from the type of the value passed in from the variable. If the type cannot be found, the type of a variable can be explicitly defined by adding the type to the end, like so: <code>let x: i32 = 10</code>. This strict type system, like with many other strictly typed languages, prevents the developer from making common mistakes when building an application, like type mismatch errors. It also helps to improve the code readability, as the developer can see what values are expected to exist in each variable</li>
+            <li>There are amny other ways that rust enforces its safety, but these are a few of the bigger ways.</li>
+        </ul>
+        <p>Rust provides many advantages when writing code at a low-level. Its biggest downside is the steeper learning curve, due to the added guard rails.</p>
+        <p>Another emerging trend explored within this program is the use of AI assisted programming. While this is probably common to most of the projects explored in this class, this trend was vital to making it this far with our project. No one in the team has ever built a kernel, and few people in the group have even attempted programming at this level, let alone in rust. Since everyone was so new to this field of programming, AI was useful for narrowing down the searching for solutions to the problems we faced, generating basic examples of what we may need to do, and overall helping us all to learn more about developing in rust at a low level. Due to how new Rust is, there is less documentation and examples out there to follow along to, so the team was thrown into the deep end, with nothing much to help us learn. Using AI assisted programming was similar to having someone there who could at least work alongside us, as we figured out what we needed to do.</p>
+    </div>
+
+    <div class="section">
+        <h2>GitHub</h2>
+        <p>Our project is hosted on GitHub <a href="https://github.com/jovielarue/minirouter" target="_blank">here</a>.</p>
+    </div>
+</body>
+</html>
