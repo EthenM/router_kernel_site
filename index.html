@@ -1,50 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rust Router Kernel - Emerging Trends</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 20px; background-color: #333;}
-        h1, h2 { color: #dfdfdf; }
-        p, ul { color: #c9c9c9; }
-        a { color: #c9c9c9; }
-        code { color: #333; background: #f4f4f4; padding: 2px 5px; border-radius: 3px; }
-        .section { margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <h1>Rust Router Kernel - Emerging Trends</h1>
-    
-    <p>Ethen Mitterhuber, Aryan Rattan, Yi-Chen Lin</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rust Router Kernel - Emerging Trends</title>
+        <style>
+            html, body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                max-width: 800px;
+                margin: auto;
+                padding: 20px;
+                background-color: #333;
+            }
+            
+            h1, h2, h3, h4 {
+                color: #dfdfdf;
+            }
+            
+            p, ul {
+                color: #c9c9c9;
+            }
+            
+            a {
+                color: #c9c9c9;
+            }
+            
+            code {
+                /* color: #333; */
+                background: #444444;
+                padding: 2px 5px;
+                border-radius: 3px;
+            }
 
-    <div class="section">
-        <h2>Overview</h2>
-        <p>This project explores the use of Rust in low level application development by building a router kernel. Rust’s memory safety and performance make it an ideal language for low-level applications, as it prevents us as the developers from making mistakes with memory management that would lead to leaks, and possibly crash the system.</p>
-    </div>
+            .section {
+                margin-bottom: 20px;
+            }
 
-    <div class="section">
-        <h2>Progress on the Kernel</h2>
-        <p>The development of the kernel has been slow. We underestimated the complexities of kernel development. Due to this, few features have actually been implemented. We have a basic bootloader, that can find the kernel file within the filesystem provided by UEFI and load it into memory. However, More work is needed on the bootloader before it can successfully transfer control off to the kernel.</p>
-    </div>
+            .subsection {
+                margin-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Rust Router Kernel - Emerging Trends</h1>
 
-    <div class="section">
-        <h2>Emerging Trends Explored</h2>
-        <p>The kernel itself was not an emerging trend, as they've been around for years. So to fit this project into our exploration of emerging trends, we had to get creative.</p>
-        <p>Our biggest trend we've been exploring is low-level application development with the Rust programming language. Rust was first released in May of 2015, and has been growing since. It is known for its memory safety, where it sets up guard rails that prevents you from writing memory unsafe code. Rust does this in a few ways:</p>
-        <ul>
-            <li>Ownership System - Every value can only have one owner at a time. This prevents pointers that point to objects that no longer exist, if they've been deleted when in another variable. It also prevents memory from being freed twice, if the developer forgets that two variables contain the same value</li>
-            <li>Borrow Checker - Rust implements a borrow checker, which prevents data races, and attempting to access an invalid reference. It enforces that only one mutable reference OR multiple immutable references exist for a given value. A value cannot have both mutable and immutable references defined at the same time, and cannot have multiple mutable references. this ensures that the developer doesn't try to mutate a value from a reference that is being used in other references. One example used is mutating a vector in a loop looping through the vector being mutated.</li>
-            <li>Strict Type System - Rust is a strictly typed language, meaning you need to define the type of each variable. To define a variable, rust uses the let keyword. In most cases, it can find the type automatically from the type of the value passed in from the variable. If the type cannot be found, the type of a variable can be explicitly defined by adding the type to the end, like so: <code>let x: i32 = 10</code>. This strict type system, like with many other strictly typed languages, prevents the developer from making common mistakes when building an application, like type mismatch errors. It also helps to improve the code readability, as the developer can see what values are expected to exist in each variable</li>
-            <li>There are amny other ways that rust enforces its safety, but these are a few of the bigger ways.</li>
-        </ul>
-        <p>Rust provides many advantages when writing code at a low-level. Its biggest downside is the steeper learning curve, due to the added guard rails.</p>
-        <p>Another emerging trend explored within this program is the use of AI assisted programming. While this is probably common to most of the projects explored in this class, this trend was vital to making it this far with our project. No one in the team has ever built a kernel, and few people in the group have even attempted programming at this level, let alone in rust. Since everyone was so new to this field of programming, AI was useful for narrowing down the searching for solutions to the problems we faced, generating basic examples of what we may need to do, and overall helping us all to learn more about developing in rust at a low level. Due to how new Rust is, there is less documentation and examples out there to follow along to, so the team was thrown into the deep end, with nothing much to help us learn. Using AI assisted programming was similar to having someone there who could at least work alongside us, as we figured out what we needed to do.</p>
-    </div>
+        <div class="section">
+            <p>
+                This project focused on exploring the emerging trend of development with rust,
+                through developing a minimal kernel. The kernel was intended for a router and
+                developed by:
+            </p>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/yi-chen-lin-50bb5a137/">Yi-Chen(Zoe) Lin</a></li>
+                <li><a href="https://www.linkedin.com/in/ethen-mitterhuber-43471a244/">Ethen Mitterhuber</a></li>
+                <li><a href="https://www.linkedin.com/in/aryan-rattan-89693523a/">Aryan Rattan</a></li>
+            </ul>
+            <p>
+                Ethen Mitterhuber While only making it
+                to the end of the bootloader, the project still taught each of us lots about both
+                rust development and OSDev.
+            </p>
+        </div>
 
-    <div class="section">
-        <h2>GitHub</h2>
-        <p>Our project is hosted on <a href="https://github.com/jovielarue/minirouter" target="_blank">GitHub, and is available for viewing.</a></p>
-    </div>
-</body>
+        <div class="section">
+            <h2>Emerging Trends</h2>
+            <h3>Technical</h3>
+            <div class="subsection">
+                <h4>Development with Rust</h4>
+                <p>
+                    Rust is an emerging low-level language that enforces memory safety, making it increasingly attractive for systems
+                    programming.
+                </p>
+            </div>
+            <div class="subsection">
+                <h4>DIY Kernel Development</h4>
+                <p>
+                    Interest in OS development has increased recently due to the availability of more resources, which has lowered
+                    the barrier to entry.
+                </p>
+            </div>
+            <div class="subsection">
+                <h4>Embedded Systems Development</h4>
+                <p>
+                    While not a new concept, embedded systems development has seen a major increase in activity due to the
+                    increasing demand for IoT (Internet of Things) devices.
+                </p>
+            </div>
+
+
+            <h3>Non-Technical</h3>
+            <div class="subsection">
+                <h4>Self-guided AI-based learning</h4>
+                <p>
+                    Each member relied heavily on the use of AI in terms of learning what was needed in a kernel.
+                    This allowed us to utilize AI as a tool to gain a high-level understanding of what is involved in kernel development. [cite: 4, 5]
+                </p>
+            </div>
+            <div class="subsection">
+                <h4>Remote team collaboration</h4>
+                <p>
+                    Most of the project was done remotely, with each member stating what they intended to work on,
+                    then going off on their own to research and implement a solution. 
+                    This allowed each of us to focus on one thing at a time, and gain a deep understanding of that topic.
+                </p>
+            </div>
+            <div class="subsection">
+                <h4>Agile development methodology</h4>
+                <p>
+                    While the kernel didn't get past the bootloader, the initial plan for the kernel was based on the agile methodology. 
+                    Our intention was to get the foundation out the first sprint, implement networking features the second sprint,
+                    then add in extra features in the last sprint.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Why Rust?</h2>
+            <p>Rust was chosen for its advantages in kernel development:</p>
+            <div class="subsection">
+                <h3>Safer Entry Point</h3>
+                <p>
+                    Rust offers a safer entry point than the C language.
+                    For example, the <code>#[entry]</code> macro is used to define the entry point, removing the need for an unsafe block.
+                    This clean and safe structure is better than typical C-style boot code and demonstrates how Rust enables safer boot code design. [cite: 8, 9]
+                </p>
+            </div>
+            <div class="subsection">
+                <h3>Type-Safe Logging</h3>
+                <p>
+                    Rust enables type-safe logging with macros like <code>info!()</code>.
+                    This eliminates the need for manual format specifiers (like %d or %s) as the compiler checks that the number of <code>{}</code> placeholders matches the number of arguments and ensures all arguments implement <code>Display</code> or <code>Debug</code>. [cite: 10, 11]
+                    This prevents runtime crashes caused by incorrect formatting. 
+                </p>
+            </div>
+            <div class="subsection">
+                <h3>Safe Error Handling</h3>
+                <p>
+                    Rust uses <code>Result&lt;T, E&gt;</code> for safe error handling.
+                    Functions like <code>read_in_kernel</code> return <code>Result&lt;T, E&gt;</code> to let the caller decide how to handle errors. [cite: 12, 13, 14]
+                    Rust forces developers to handle errors directly, avoiding bugs caused by ignored failures, and integrates with Rust's pattern matching for clear and consistent logic. [cite: 14, 15]
+                </p>
+            </div>
+            <div class="subsection">
+                <h3>Safe Error Handling In Action</h3>
+                <p>
+                    The <code>match</code> keyword is used to explicitly handle both <code>Ok</code> and <code>Err</code> cases. 
+                    If reading the kernel file fails, the caller logs the error and stops the boot process, which keeps the system from continuing in an invalid or incomplete state and prevents overlooked errors since the compiler requires all outcomes to be handled. [cite: 16, 17, 18]
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Technical Aspects</h2>
+            <div class="subsection">
+                <h4>Rust for Memory-Safe Kernel Development</h4>
+                <p>
+                    Rust is being adopted for low-level OS development due to its memory safety features and performance.
+                </p>
+            </div>
+            <div class="subsection">
+                <h4>Minimal & Modular Kernels</h4>
+                <p>
+                    There's a growing interest in creating lightweight, modular kernels that can be customized for specific needs.
+                    Minimal kernels reduce the attack surface, offering better security and stability.
+                </p>
+            </div>
+            <div class="subsection">
+                <h4>Boot Sequence</h4>
+                <p>
+                    The first thing to start up on a computer is the BIOS/UEFI.
+                    This firmware performs a Power On Self Test (POST), checking to ensure all hardware is accounted for and working properly.
+                    Control is then passed onto the bootloader.
+                    The bootloader’s responsibility is to initialize the system, load the kernel into memory and pass execution off to the kernel.
+                    Bootloaders work differently on BIOS and UEFI based systems.
+                    BIOS-based systems have 512 bytes to work with for the bootloader.
+                    UEFI does not have this restriction but can be built in this way to ensure compatibility with BIOS systems.
+                    The bootloader then passes control off to the kernel when the system is initialized.
+                    The kernel is the part of an operating system that communicates with the hardware.
+                </p>
+            </div>
+            <div class="subsection">
+                <h4>ELF Files - Intro</h4>
+                <p>
+                    The standard executable format for Linux systems is ELF (Executable and Linkable Format).
+                    The kernel was built using WSL on most of our computers, so the compiler built the kernel executable as an ELF.
+                    The bootloader needs to parse the kernel executable, load it into memory and pass execution off to the kernel entry function (_start).
+                    As a result, a deep understanding of the structure of the ELF file is needed.
+                    The Windows counterpart is the Portable Executable, which is also the format of the bootloader! (UEFI uses PE as the bootloader file format).
+                </p>
+            </div>
+            <div class="subsection">
+                <h4>ELF Files - Structure</h4>
+                <p>
+                    Each ELF file is made up of:
+                </p>
+                <ul>
+                    <li>
+                        <b>ELF header:</b>
+                        <ul>
+                            <li>Contains a magic number (bytes: 0x7F 0x45 0x4c 0x46, the last three spell ELF).</li>
+                            <li>Contains other information about the type of computer this file was built for.</li>
+                            <li>Stores the number and size of each entry, and the offset to the program header and section header tables.</li>
+                            <li>The information for the program header table is important.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Program header table:</b>
+                        <ul>
+                            <li>Stores information about each segment in the file.</li>
+                            <li>Segment offset in file.</li>
+                            <li>Size in file and in memory (does not have to match, memory size can be larger).</li>
+                            <li>The virtual address to load the segment into.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Segments:</b>
+                        <ul>
+                            <li>Contains the data stored in the executable.</li>
+                            <li>Each segment contains a specific type.</li>
+                            <li>Any with a type of PT_LOAD (1) needs to be loaded into memory.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Sections (not mandatory for loading)</b>
+                    </li>
+                    <li>
+                        <b>Section header table (not mandatory for loading)</b>
+                    </li>
+                </ul>
+                <p>further reading: <a href="https://wiki.osdev.org/ELF">OSDev - ELF</a></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Ethical Issues</h2>
+            <p>The project considered several ethical concerns:</p>
+            <div class="subsection">
+                <h4>Low-Level System Security</h4>
+                <p>
+                    Through the development of the kernel, the developers were in control of everything that the OS needs to implement. 
+                    Ensuring proper handling of features like memory management is critical, as a poorly managed system can lead to severe vulnerabilities, leaving the user open to attacks or the system open to crashes. 
+                </p>
+            </div>
+            <div class="subsection">
+                <h4>Software Freedom and User Autonomy</h4>
+                <p>
+                    Most users run operating systems they don’t control. 
+                    By building their own, the developers gained complete control over what their system does, demonstrating how little control users often have over the systems they use daily. 
+                </p>
+            </div>
+            <div class="subsection">
+                <h4>Privacy and Data Access</h4>
+                <p>
+                    Developing a kernel means defining who can access what (e.g., what memory processes can access, defining methods for access control in user mode). 
+                    Therefore, it's crucial to ensure that the system can effectively protect user data from unwanted access. 
+                    This is especially important for a router kernel, where improper access control and data protection could allow attackers to enter a network. 
+                </p>
+            </div>
+        </div>
+    </body>
 </html>
